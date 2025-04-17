@@ -87,34 +87,9 @@ def draw_parallelogram():
              "電流の正の向き", fontsize=12, ha='center', fontfamily='Yu Gothic')
     
         # ここから新たにアの下側に半円と矢印を描画
-    # 半円はア (A) の下側に描く
-    # ここでは Arc を用い、中心を (6,3.5)、半径を非常に小さく r = 0.1 とし、
-    #  theta1=0, theta2=180 として右側から左側への半円を描く
     arc_center = (6, 3.5)
-    r = 0.1
-    arc_patch = Arc(arc_center, width=2*r, height=2*r, angle=0, theta1=0, theta2=180, color='k', lw=1)
-    plt.gca().add_patch(arc_patch)
-    
         # --- アの下側に描いた半円の上端に付く矢印（三角形）の描画 ---
-    # 半円の上端（theta = 180°）は
-    arc_tip = (arc_center[0] + r*math.cos(math.radians(180)),
-               arc_center[1] + r*math.sin(math.radians(180)))  # (6 - r, 3.5)
-    
-    # 三角形（矢印）の描画
-    # 矢印の先端は arc_tip とする
-    T = arc_tip
-    # 矢印の向きを示すベクトルを、右に45°回転させる（例：v = (–0.2588, 0.9659)）
-    v = (-0.2588, 0.9659)
-    arrow_height = 0.05  # 三角形の高さ
-    arrow_half = 0.025   # 三角形の底辺の半分の長さ
-    # 基準となる底点（中心）は、先端から arrow_height 分 v の逆方向へ
-    base_center = (T[0] - arrow_height*v[0], T[1] - arrow_height*v[1])
-    # v に垂直（反時計回り90°）の単位ベクトルを求める
-    perp = (-v[1], v[0])  # この場合、 perp ≒ (-0.9659, -0.2588)
-    base_left = (base_center[0] + arrow_half*perp[0], base_center[1] + arrow_half*perp[1])
-    base_right = (base_center[0] - arrow_half*perp[0], base_center[1] - arrow_half*perp[1])
-    arrow_triangle = [T, base_left, base_right]
-    plt.fill(*zip(*arrow_triangle), color='k')
+    plt.text(arc_center[0] - 0.1, arc_center[1] - 0.05, "⤴", fontsize=12)
 
     # （元の平行四辺形の頂点ラベル個別設定例）
     # ア：A のラベル（例：右上に配置）
