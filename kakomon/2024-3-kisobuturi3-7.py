@@ -5,28 +5,28 @@ def create_F_vector_plot(filename="7.jpg"):
     fig, ax = plt.subplots()
 
     # ベクトル F : 原点から上方向へ（長さ 3）
-    ax.arrow(0, 0, 0, 1, head_width=0.01, head_length=0.1,
+    ax.arrow(0, 0, 0, 3, head_width=0.025, head_length=0.1,
              fc='black', ec='black', length_includes_head=True)
-    ax.text(0.05, 0.8, r'$\vec{F}$', fontsize=12, fontfamily='serif')
+    ax.text(0.15, 1.5, r'$\vec{F}$', fontsize=12, fontfamily='serif')
 
     # ベクトル B : 同じ原点から、水平状態から +20°回転した方向（長さ 3）
     angle_B = math.radians(20)
-    length = 0.5
+    length = 3
     bx = length * math.cos(angle_B)
     by = length * math.sin(angle_B)
-    ax.arrow(0, 0, bx, by, head_width=0.01, head_length=0.1,
+    ax.arrow(0, 0, bx, by, head_width=0.025, head_length=0.1,
              fc='black', ec='black', length_includes_head=True)
     # ベクトル B のラベルを、矢印の先端から少し右側に配置
-    ax.text(bx + 0.05, by, r'$\vec{B}$', fontsize=12, fontfamily='serif')
+    ax.text(bx + 0.15, by, r'$\vec{B}$', fontsize=12, fontfamily='serif')
 
     # ベクトル v : 同じ原点から、水平状態から -20°回転した方向（長さ 3）
     angle_v = math.radians(-20)
     bx_v = length * math.cos(angle_v)
     by_v = length * math.sin(angle_v)
-    ax.arrow(0, 0, bx_v, by_v, head_width=0.01, head_length=0.1,
+    ax.arrow(0, 0, bx_v, by_v, head_width=0.025, head_length=0.1,
              fc='black', ec='black', length_includes_head=True)
     # ベクトル v のラベルを、矢印の先端から少し右側に配置
-    ax.text(bx_v + 0.05, by_v, r'$\vec{v}$', fontsize=12, fontfamily='serif')
+    ax.text(bx_v + 0.15, by_v, r'$\vec{v}$', fontsize=12, fontfamily='serif')
     
     # ----- 以下、直角マークの挿入 -----
     seg = 0.1  # 直角マークの各線分の長さ
