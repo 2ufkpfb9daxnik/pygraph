@@ -4,7 +4,7 @@ def create_Vt_coordinate_plot(filename="6.jpg"):
     fig, ax = plt.subplots()
 
     # t軸（横軸）：原点から右方向へ矢印
-    ax.arrow(0, 0, 13, 0, length_includes_head=True,
+    ax.arrow(-1, 0, 13, 0, length_includes_head=True,
              head_width=0.3, head_length=0.5, fc='black', ec='black')
     # V軸（縦軸）：下から上方向へ矢印
     ax.arrow(0, -6, 0, 12, length_includes_head=True,
