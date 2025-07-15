@@ -7,6 +7,10 @@ g = Graph('G', filename='graph', format='jpg')
 # グラフ属性の設定：左から右への水平レイアウト
 g.attr(rankdir='LR')  # Left to Right
 
+# 高解像度画像のための設定
+# DPIを300に設定（デフォルトは96程度）
+g.attr(dpi='600', shape='circle')
+
 # エッジの追加
 g.edge('0', '1')
 g.edge('0', '2')
